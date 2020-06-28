@@ -1,6 +1,6 @@
 import unittest # Importing the unittest module
 from user import User
-import 
+import pyperclip
 
 class TestUser(unittest.TestCase):
         '''
@@ -106,7 +106,6 @@ def test_user_exists(self):
         user_exists = User.user_exist("0700007800")
 
         self.assertTrue(user_exists)
-
 
 
 

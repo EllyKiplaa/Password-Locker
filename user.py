@@ -1,5 +1,11 @@
 class User:
     '''
-    This class will create the instances for all the users
+     Class that generates new instances of users    
     
+    '''
+    user_info = []
+
+def save_info(self):
+    '''
+    this method will save information into the empty user_info array
     '''

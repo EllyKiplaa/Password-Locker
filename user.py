@@ -4,7 +4,7 @@ class User:
     
     '''
     user_list = []
-def __init__(self, username,number,email,password):
+def __init__(self, username,number,email,password,):
     '''
     defining the object properties
     '''    
@@ -38,11 +38,3 @@ def find_by_number(cls,number):
             if user.number == number:
                 return user
 
-# class Credential:
-#     '''
-#     Class which helps the users remember their account's information easily
-#     '''
-
-# def __init__(self,Names,):
-#     '''
-    # '''

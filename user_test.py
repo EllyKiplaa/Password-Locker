@@ -35,7 +35,14 @@ def tearDown(self):
         '''
         User.user_info= []        
 
+def test_save_user(self):
+        '''
+        test_save_user test case to test if the User object is saved into`
+        the user info
 
+        '''
+        self.new_user.save_user() # saving the new user
+        self.assertEqual(len(User.user_info),1)
 
 
 

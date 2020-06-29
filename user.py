@@ -57,6 +57,6 @@ def user_exist(cls,number):
 
 @classmethod
 def copy_email(cls,number):
-        contact_found = Contact.find_by_number(number)
-        pyperclip.copy(contact_found.email)
+        user_found = User.find_by_number(number)
+        pyperclip.copy(user_found.email)
 

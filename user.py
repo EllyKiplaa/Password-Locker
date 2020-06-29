@@ -1,3 +1,4 @@
+import pyperclip
 class User:
     '''
      Class that generates new instances of users    
@@ -50,6 +51,12 @@ def user_exist(cls,number):
         '''
         for user in cls.user_list:
             if user.phone_number == number:
-                
+
                     return True
+
+
+@classmethod
+def copy_email(cls,number):
+        contact_found = Contact.find_by_number(number)
+        pyperclip.copy(contact_found.email)
 

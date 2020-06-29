@@ -1,6 +1,6 @@
 import unittest # Importing the unittest module
 from user import User
-import pyperclip
+
 
 class TestUser(unittest.TestCase):
         '''
@@ -24,7 +24,7 @@ def tearDown(self):
         '''
         tearDown method that does clean up after each test case has run.
         '''
-        User.user_info= []  
+        User.user_list= []  
 
 def test_init(self):
         '''
@@ -40,7 +40,7 @@ def test_init(self):
 def test_save_user(self):
         '''
         test_save_user test case to test if the User object is saved into`
-        the user info
+        the user list
 
         '''
         self.new_user.save_user() # saving the new user
@@ -50,7 +50,7 @@ def test_save_user(self):
 def test_save_multiple_user(self):
         '''
         test_save_multiple_user to check if we can save multiple user
-        objects to our user_info
+        objects to our user_list
         '''
         self.new_user.save_user()
         test_user = User("Test","user","0706274770","test@user@user.com") # new user

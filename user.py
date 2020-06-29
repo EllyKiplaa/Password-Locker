@@ -18,7 +18,7 @@ def save_user(self):
     '''
     this method will save infomation of the user
     '''
-    User.user_info.append(self)
+    User.user_list.append(self)
 
 def delete_user(self):
     '''
@@ -37,4 +37,19 @@ def find_by_number(cls,number):
     for user in cls.user_list:
             if user.number == number:
                 return user
+
+
+@classmethod
+def user_exist(cls,number):
+        '''
+        Method that checks if a user exists from the user list.
+        Args:
+        number: Phone number to search if it exists
+        Returns :
+        Boolean: True or false depending if the user exists
+        '''
+        for user in cls.user_list:
+            if user.phone_number == number:
+                
+                    return True
 

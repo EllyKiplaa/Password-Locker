@@ -18,7 +18,7 @@ def save_credentials(self):
     '''
     this method will save infomation of the user
     '''
-    User.user_info.append(self)
+    Credentials.credential_list.append(self)
 
 def delete_credentials(self):
     '''
@@ -38,4 +38,11 @@ def find_by_number(cls,number):
     for credentials in cls.credentials_list:
             if credentials.number == number:
                 return credentials
+
+    for credentials in cls.credentials_list:
+            if credentials.number == number:
+                return credentials
+                
+                return False            
+
 

@@ -1,3 +1,4 @@
+import pyperclip
 class Credentials:
     '''
      Class that generates new instances of credentials    
@@ -39,10 +40,22 @@ def find_by_number(cls,number):
             if credentials.number == number:
                 return credentials
 
+def credentials_exist(cls,number):
     for credentials in cls.credentials_list:
             if credentials.number == number:
                 return credentials
                 
-                return False            
+                return True        
 
+@classmethod
+def display_credentials(cls):
+        '''
+        method that returns the credentials list
+        '''
+        return cls.user_list 
+
+@classmethod
+def copy_email(cls,number):
+        credentials_found = Credentials.find_by_number(number)
+        pyperclip.copy(credentials_found.email)
 

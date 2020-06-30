@@ -72,7 +72,7 @@ def main():
 
             save_users(create_user(acc_name,p_number,acc_address,acc_password)) # create and save new user.
             print('\n')
-            print (f"Create a new user account... {acc_name}  {acc_password} created.")
+            print (f"New user account{acc_name}  {p_number} created.")
             print('\n')
 
 
@@ -80,8 +80,10 @@ def main():
             if display_users():
                 print("Login to the your account..")
                 print('\n')
+
                 for user in display_users():
-                    print(f"{user.account_name} {user.password} .....{user.email_address}")
+                    print(f"{user.acc_name} {user.email_address} .....{user.acc_password}")
+                    
                     print('\n')
             else:
                 print('\n')
@@ -97,7 +99,7 @@ def main():
             search_number = input()
             if check_existing_users(search_number):
                 search_user = find_user(search_number)
-                print(f"{search_user.username} {search_user.last_name}")
+                print(f"{search_user.first_name} {search_user.last_name}")
                 print('-' * 20)
 
                 print(f"Phone number.......{search_user.number}")

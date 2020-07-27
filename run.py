@@ -1,19 +1,20 @@
 #!/usr/bin/env python3.6
 from user import User
-from Credentials import Credentials 
+import random
 
-def create_user(fname,lname,phone,email):
+def create_user(username,number,email,password):
     '''
     Function to create a new user
     '''
-    new_user = User(fname,lname,phone,email)
+    new_user = User(username,number,email,password)
     return new_user
 
-def save_users(user):
+def save_new_user(user):
     '''
     Function to save user
     '''
     user.save_user()
+
 
 def del_user (user):
     '''
@@ -21,14 +22,17 @@ def del_user (user):
     '''
     user.delete_user()
 
-
-
-
 def find_user(number):
     '''
     Function that finds a user by number and returns the user
     '''
     return User.find_by_number(number)
+
+def display_users():
+    '''
+    Function that returns all the saved users
+    '''
+    return User.display_users()
 
 def check_existing_users(number):
     '''
@@ -36,11 +40,6 @@ def check_existing_users(number):
     '''
     return User.user_exist(number)    
 
-def display_users():
-    '''
-    Function that returns all the saved users
-    '''
-    return User.display_users()
 
 def main():
     print("Hello Welcome to the Password locker.Write your name then press enter")
@@ -50,18 +49,19 @@ def main():
     print('\n')
 
     while True:
-        print("cc - create a new user account,  dc - login to an existing user accounts if you have one, fc -find a user account, ex -exit from the password locker  ")
+        print("cu - create user account,  du - Display users, fu -find a user account, ex -exit from the password locker  ")
         short_code = input(">>>").lower()
         print('\n')
-        if short_code == "cc":
-            print ("Create a new user account...")
+        if short_code == "cu":
+            print ("New User")
             print("-"* 10)
 
-            print ("Enter account username")
-            acc_name = input(">>>")
+            print ("Enter first name....")
+            f_name = input(">>>")
+
+            print ("Enter last name...")
+            l_name = input(">>>")
             
-            print("Phone number ...")
-            p_number = input()
 
             print ("Enter user email address...")
             acc_address = input (">>>")
@@ -70,19 +70,19 @@ def main():
             acc_password = input (">>>")
             print('\n')
 
-            save_users(create_user(acc_name,p_number,acc_address,acc_password)) # create and save new user.
+            save_new_user(create_user(f_name, l_name, acc_address,acc_password)) # create and save new user.
             print('\n')
-            print (f"New user account{acc_name}  {p_number} created.")
+            print (f"New user account {f_name} {f_name} created")
             print('\n')
 
 
-        elif short_code == 'dc':  
+        elif short_code == 'du':  
             if display_users():
-                print("Login to the your account..")
+                print("Here is the list of users..")
                 print('\n')
 
                 for user in display_users():
-                    print(f"{user.acc_name} {user.email_address} .....{user.acc_password}")
+                    print(f"{user.username} {user.number} {user.email}.....{user.password}")
                     
                     print('\n')
             else:
@@ -91,7 +91,7 @@ def main():
                 print('\n')
 
 
-        elif short_code == 'fc':
+        elif short_code == 'fu':
 
             print("Enter the number you want to search for")
 

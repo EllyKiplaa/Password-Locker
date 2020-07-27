@@ -1,18 +1,20 @@
-import pyperclip
+# import pyperclip
+import string
+import random
 class Credentials:
     '''
      Class that generates new instances of credentials    
     
     '''
     credentials_list = []
-def __init__(self, username,number,email,password,):
+def __init__(self, user_title,acc_name,email,acc_password,):
     '''
     defining the object properties
     '''    
 
-    self.username = username
-    self.number = number
-    self.password = password
+    self.user_title = user_title
+    self.acc_name = acc_name    
+    self.acc_password = acc_password
     self.email = email
 
 def save_credentials(self):
@@ -29,6 +31,14 @@ def delete_credentials(self):
     '''
     Credentials.credentials_list.remove(self)
 
+
+def random_password(self):
+    '''method to generate a random password'''
+
+    characters = string.ascii_lowercase + string.digits
+    gen_password = ''.join(random.choice(characters) for i in range (0,12))
+
+    return gen_password
 
 @classmethod
 def find_by_number(cls,number):
